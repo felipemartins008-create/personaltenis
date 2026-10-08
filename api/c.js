@@ -13,11 +13,27 @@ module.exports = (req, res) => {
     pageTitle = '🏖️ Beach Tennis: Preparação Física & Aulas | Felipe Martins';
     pageDesc = 'Ganhe agilidade na areia, potência nos smashes e condicionamento para jogos intensos sem lesões.';
     bannerImg = `${baseUrl}/assets/img/banner-beach-tennis.jpg`;
+  } else if (banner === 'saibro') {
+    pageTitle = '🎾 Tênis: Preparação Física & Aulas no Saibro | Felipe Martins';
+    pageDesc = 'Footwork, precisão e potência nos golpes com acompanhamento presencial em Jundiaí e região.';
+    bannerImg = `${baseUrl}/assets/img/tenis-raquete-saibro.png`;
+  } else if (banner === 'saque') {
+    pageTitle = '⚡ Potência no Saque e Forehand | Personal Felipe Martins';
+    pageDesc = 'Mais velocidade de bola através da biomecânica correta e zero dores no cotovelo e ombro.';
+    bannerImg = `${baseUrl}/assets/img/tenis-jogadora-saque.png`;
+  } else if (banner === 'personal') {
+    pageTitle = '💪 Personal Trainer Felipe Martins | Tênis & Beach Tennis';
+    pageDesc = 'Acompanhamento presencial exclusivo com CREF ativo em Jundiaí e região.';
+    bannerImg = `${baseUrl}/assets/img/felipe-portrait.jpg`;
+  } else if (banner === 'remada') {
+    pageTitle = '🛡️ Prevenção de Tennis Elbow & Força | Felipe Martins';
+    pageDesc = 'Blindagem articular do cotovelo e manguito com preparação física personalizada.';
+    bannerImg = `${baseUrl}/assets/img/treino-forca-remada.png`;
   } else if (banner === 'biomecanica') {
     bannerImg = `${baseUrl}/assets/img/banner-tenis-biomecanica.jpg`;
   }
 
-  const redirectUrl = `/?src=grupo_tenis${modalidade ? '&m=' + encodeURIComponent(modalidade) : ''}`;
+  const redirectUrl = `/?src=grupo_tenis${modalidade ? '&m=' + encodeURIComponent(modalidade) : ''}${banner ? '&b=' + encodeURIComponent(banner) : ''}`;
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   // Cache CDN para resposta instantânea ao scraper do WhatsApp
