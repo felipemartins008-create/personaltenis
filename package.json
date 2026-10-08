@@ -1,0 +1,21 @@
+{
+  "name": "personal-tenis-divulgacao",
+  "version": "1.0.0",
+  "description": "Estrutura de link de divulgação com funil de Landing Page e Quiz 100% focado em Tênis e Beach Tennis para WhatsApp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "tenis",
+    "beach-tennis",
+    "personal-trainer",
+    "whatsapp",
+    "funil",
+    "landing-page",
+    "quiz"
+  ],
+  "author": "Felipe Martins",
+  "license": "ISC"
+}

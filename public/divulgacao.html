@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divulgação de Tênis & Beach Tennis | Personal Felipe Martins</title>
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #f59e0b;
+      --bg: #020617;
+      --card-bg: #0f172a;
+      --border: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      padding: 32px 20px;
+      line-height: 1.5;
+    }
+
+    .wrapper { max-width: 1080px; margin: 0 auto; }
+    header { margin-bottom: 28px; text-align: center; }
+
+    .badge-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 { font-size: 32px; font-weight: 900; color: #ffffff; margin-bottom: 8px; letter-spacing: -0.5px; }
+    p.subtitle { color: var(--text-muted); font-size: 15px; max-width: 680px; margin: 0 auto; }
+
+    .grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; margin-bottom: 32px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: #ffffff;
+    }
+
+    .link-box {
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .link-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .link-url {
+      font-family: monospace;
+      font-size: 14px;
+      color: #38bdf8;
+      word-break: break-all;
+      background: #0b141a;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #1e293b;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    }
+    .btn-primary:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+    .btn-outline { background: #0b141a; border: 1px solid var(--border); color: #cbd5e1; }
+    .btn-outline:hover { background: #1e293b; color: #fff; border-color: #475569; }
+
+    .textarea-box {
+      width: 100%;
+      height: 240px;
+      background: #020617;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+      color: #f1f5f9;
+      font-family: inherit;
+      font-size: 13.5px;
+      line-height: 1.5;
+      resize: vertical;
+      margin-bottom: 14px;
+    }
+    .textarea-box:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Seletor de Banner Open Graph */
+    .banner-selector {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .banner-option {
+      cursor: pointer;
+      border: 2px solid #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 4px;
+      background: #020617;
+      min-width: 130px;
+      flex: 1;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .banner-option.active {
+      border-color: #10b981;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
+    }
+    .banner-option img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+    .banner-option span {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #cbd5e1;
+      margin-top: 6px;
+    }
+
+    /* Simulador WhatsApp */
+    .whatsapp-preview-box {
+      background: #0b141a;
+      border-radius: 18px;
+      padding: 16px;
+      border: 1px solid #222d34;
+    }
+
+    .whatsapp-bubble {
+      background: #005c4b;
+      color: #e9edef;
+      border-radius: 14px;
+      padding: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+      font-size: 13px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+
+    .og-card {
+      background: #025144;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .og-card:hover { opacity: 0.95; }
+
+    .og-img-preview {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      background: #1f2c34;
+    }
+
+    .og-text { padding: 10px 12px; }
+    .og-title { font-size: 13.5px; font-weight: 800; color: #ffffff; line-height: 1.3; margin-bottom: 3px; }
+    .og-desc { font-size: 11.5px; color: #cbd5e1; line-height: 1.35; margin-bottom: 4px; }
+    .og-url { font-size: 10.5px; color: #aebac1; text-transform: lowercase; }
+
+    .whatsapp-msg-text {
+      padding: 6px 8px;
+      font-size: 13px;
+      color: #e9edef;
+      white-space: pre-line;
+      line-height: 1.45;
+    }
+
+    /* Steps */
+    .steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media (max-width: 768px) { .steps-row { grid-template-columns: 1fr; } }
+
+    .step-item {
+      background: #0b141a;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+    }
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .step-title { font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #10b981;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <header>
+      <div class="badge-top">🎾 Personal Felipe Martins • Grupo de Tênis</div>
+      <h1>Link & Mensagem de Divulgação</h1>
+      <p class="subtitle">
+        Link oficial com card de imagem e headline configurado para divulgar no seu grupo de WhatsApp de praticantes de Tênis e Beach Tennis. O lead clica, passa pelo Funil/Quiz e vai direto para o seu WhatsApp!
+      </p>
+    </header>
+
+    <div class="grid">
+      <!-- Coluna da Esquerda: Link & Copy Pronta -->
+      <div class="card">
+        <div class="card-title">
+          <span>🔗</span> Link Oficial de Divulgação
+        </div>
+
+        <div class="link-box">
+          <div class="link-header">
+            <span>Link do Card com Redirecionamento</span>
+            <span style="color: #34d399;">Ativo & Seguro</span>
+          </div>
+          <div class="link-url" id="linkDisplay">https://personaltenis.vercel.app/c</div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" onclick="copiarLink()">
+              <span>📋 Copiar Link</span>
+            </button>
+            <a href="/c" target="_blank" class="btn btn-outline" id="btnTestarLink">
+              <span>↗️ Testar Link</span>
+            </a>
+            <a href="/" target="_blank" class="btn btn-outline">
+              <span>🌐 Ver Landing Page</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Seletor de Tema do Card -->
+        <div style="margin-bottom: 18px;">
+          <label style="display: block; font-size: 13px; font-weight: 700; color: #cbd5e1; margin-bottom: 8px;">
+            🖼️ Escolha o Estilo do Card do WhatsApp:
+          </label>
+          <div class="banner-selector">
+            <div class="banner-option active" onclick="selecionarBanner('tenis', this)">
+              <img src="assets/img/banner-tenis.jpg" alt="Tênis Geral" />
+              <span>🎾 Tênis & Beach</span>
+            </div>
+            <div class="banner-option" onclick="selecionarBanner('biomecanica', this)">
+              <img src="assets/img/banner-tenis-biomecanica.jpg" alt="Biomecânica" />
+              <span>📊 Biomecânica</span>
+            </div>
+            <div class="banner-option" onclick="selecionarBanner('beach', this)">
+              <img src="assets/img/banner-beach-tennis.jpg" alt="Beach Tennis" />
+              <span>🏖️ Beach Tennis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy Pronta para o Grupo -->
+        <div class="card-title" style="margin-top: 10px;">
+          <span>💬</span> Mensagem Formatada para o Grupo
+        </div>
+
+        <textarea class="textarea-box" id="msgTextarea"></textarea>
+
+        <div class="btn-group">
+          <button type="button" class="btn btn-primary" style="flex: 1;" onclick="copiarMensagemCompleta()">
+            <span>✨ Copiar Mensagem Completa para o Grupo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Coluna da Direita: Simulador Real do WhatsApp -->
+      <div class="card">
+        <div class="card-title">
+          <span>📱</span> Como vai aparecer no WhatsApp
+        </div>
+
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; font-size: 12.5px; color: #a7f3d0; line-height: 1.45;">
+          ⚡ <strong>Visual Impecável:</strong> Quando você cola a mensagem com o link no WhatsApp, ele puxa automaticamente a foto quadrada de alta resolução e a headline no card!
+        </div>
+
+        <div class="whatsapp-preview-box">
+          <div style="color: #8696a0; font-size: 11px; margin-bottom: 10px; text-align: center;">
+            Prévia do card no WhatsApp:
+          </div>
+
+          <div class="whatsapp-bubble">
+            <div class="og-card" onclick="window.open('/c', '_blank')">
+              <img src="assets/img/banner-tenis.jpg" class="og-img-preview" id="simImage" alt="Card Preview" />
+              <div class="og-text">
+                <div class="og-title" id="simTitle">🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins</div>
+                <div class="og-desc" id="simDesc">Evolua seu jogo de Tênis e Beach Tennis: mais potência no saque e forehand, fôlego para 3 sets e zero dores no cotovelo.</div>
+                <div class="og-url" id="simUrl">personaltenis.vercel.app</div>
+              </div>
+            </div>
+
+            <div class="whatsapp-msg-text" id="simMsg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Passos Simples -->
+    <div class="card">
+      <div class="card-title">
+        <span>🚀</span> Como Divulgar no Grupo em 3 Passos Simples
+      </div>
+      <div class="steps-row">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-title">Copie a Mensagem</div>
+          <div class="step-desc">Clique no botão "Copiar Mensagem Completa" acima para copiar o texto com o link já embutido.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-title">Cole no Grupo</div>
+          <div class="step-desc">Cole no grupo de WhatsApp e aguarde 2 segundos para o WhatsApp carregar a imagem do card no topo.</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-title">Receba os Leads</div>
+          <div class="step-desc">O membro clica no card, responde 3 perguntas rápidas do Quiz e chega pronto no seu WhatsApp com as respostas!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">Copiado com sucesso!</div>
+
+  <script>
+    let currentBannerStyle = 'tenis';
+    const linkDisplay = document.getElementById('linkDisplay');
+    const msgTextarea = document.getElementById('msgTextarea');
+    const simImage = document.getElementById('simImage');
+    const simTitle = document.getElementById('simTitle');
+    const simDesc = document.getElementById('simDesc');
+    const simUrl = document.getElementById('simUrl');
+    const simMsg = document.getElementById('simMsg');
+    const toast = document.getElementById('toast');
+    const btnTestarLink = document.getElementById('btnTestarLink');
+
+    function getBaseUrl() {
+      return window.location.origin;
+    }
+
+    function getGeneratedLink() {
+      const base = getBaseUrl();
+      if (currentBannerStyle === 'biomecanica') {
+        return `${base}/c?banner=biomecanica`;
+      } else if (currentBannerStyle === 'beach') {
+        return `${base}/c?modalidade=beach`;
+      }
+      return `${base}/c`;
+    }
+
+    function updateCopy() {
+      const link = getGeneratedLink();
+      linkDisplay.textContent = link;
+      btnTestarLink.href = link;
+      simUrl.textContent = window.location.host || 'personaltenis.vercel.app';
+
+      let headline = '🎾 *PREPARAÇÃO FÍSICA E AULAS DE TÊNIS* 🏆';
+      let subtitulo = 'Fala pessoal do grupo! Quem aqui joga Tênis ou Beach Tennis e quer evoluir o nível de jogo nas próximas semanas?';
+
+      if (currentBannerStyle === 'beach') {
+        headline = '🏖️ *BEACH TENNIS: PREPARAÇÃO FÍSICA & AULAS* 🎾';
+        subtitulo = 'Fala pessoal do grupo! Quem aqui joga Beach Tennis e quer mais agilidade na areia, smashes potentes e zero dores no ombro?';
+      } else if (currentBannerStyle === 'biomecanica') {
+        headline = '⚡ *POTÊNCIA E BIOMECÂNICA NO TÊNIS* 🎾';
+        subtitulo = 'Fala pessoal! Quem aqui joga Tênis e quer acelerar a velocidade do saque e forehand sem sobrecarregar o cotovelo e ombro?';
+      }
+
+      const text = `${link}
+
+${headline}
+
+${subtitulo}
+
+Estruturei um acompanhamento presencial focado 100% no esporte:
+
+• Mais potência e velocidade no saque e forehand
+• Fôlego e footwork para aguentar 3 sets intensos sem cansar
+• Prevenção e alívio de lesões (cotovelo de tenista / epicondilite, ombro e lombar)
+• Aulas práticas e preparação física personalizada na quadra ou academia
+
+⚠️ *Vagas limitadas na grade de horários presenciais em Jundiaí e região.*
+
+👆 *Toque no link ou na foto acima para responder 3 perguntas rápidas (30s) e liberar seu plano esportivo sob medida!*`;
+
+      msgTextarea.value = text;
+
+      // Atualiza simulador de texto do WhatsApp (sem o link no corpo se preferir ou com visual limpo)
+      const previewText = text.replace(link + '\n\n', '');
+      simMsg.textContent = previewText;
+    }
+
+    function selecionarBanner(estilo, el) {
+      currentBannerStyle = estilo;
+      document.querySelectorAll('.banner-option').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+
+      if (estilo === 'biomecanica') {
+        simImage.src = 'assets/img/banner-tenis-biomecanica.jpg';
+        simTitle.textContent = '⚡ Potência & Biomecânica no Tênis | Personal Felipe Martins';
+        simDesc.textContent = 'Acelere o saque e forehand com transferência de força e zero dores no cotovelo.';
+      } else if (estilo === 'beach') {
+        simImage.src = 'assets/img/banner-beach-tennis.jpg';
+        simTitle.textContent = '🏖️ Beach Tennis: Preparação Física & Aulas | Felipe Martins';
+        simDesc.textContent = 'Ganhe agilidade na areia, smashes explosivos e fôlego para jogos longos sem lesões.';
+      } else {
+        simImage.src = 'assets/img/banner-tenis.jpg';
+        simTitle.textContent = '🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins';
+        simDesc.textContent = 'Evolua seu jogo de Tênis e Beach Tennis: mais potência no saque e forehand, fôlego para 3 sets e zero dores.';
+      }
+
+      updateCopy();
+      showToast('Estilo de card atualizado!');
+    }
+
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.style.display = 'block';
+      setTimeout(() => { toast.style.display = 'none'; }, 2500);
+    }
+
+    function copiarLink() {
+      const link = getGeneratedLink();
+      navigator.clipboard.writeText(link).then(() => {
+        showToast('Link copiado para a área de transferência!');
+      });
+    }
+
+    function copiarMensagemCompleta() {
+      navigator.clipboard.writeText(msgTextarea.value).then(() => {
+        showToast('Mensagem completa copiada! Agora basta colar no grupo.');
+      });
+    }
+
+    // Inicialização
+    updateCopy();
+  </script>
+</body>
+</html>

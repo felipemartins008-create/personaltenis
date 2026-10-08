@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Personal Felipe Martins | Preparação Física & Aulas de Tênis e Beach Tennis</title>
+  <meta name="description" content="Personal trainer e professor especialista em Tênis e Beach Tennis em Jundiaí e região. Mais potência nos golpes, fôlego para 3 sets e zero dores no cotovelo e ombro.">
+  <meta name="keywords" content="personal tenis, personal beach tennis, aulas de tenis jundiai, preparacao fisica tenis, evitar tennis elbow, personal trainer tenis, felipe martins personal">
+
+  <!-- Open Graph / WhatsApp Preview Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins">
+  <meta property="og:description" content="Evolua seu jogo de Tênis e Beach Tennis: mais potência no saque e forehand, fôlego para 3 sets e zero dores no cotovelo e ombro.">
+  <meta property="og:image" content="https://personaltenis.vercel.app/assets/img/banner-tenis.jpg">
+  <meta property="og:url" content="https://personaltenis.vercel.app/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          colors: {
+            court: {
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+            },
+            neon: '#a3e635',
+            clay: '#ea580c',
+            carbon: {
+              800: '#1e293b',
+              900: '#0f172a',
+              950: '#020617',
+            }
+          },
+          boxShadow: {
+            'glow-emerald': '0 10px 28px -5px rgba(16, 185, 129, 0.45)',
+            'glow-neon': '0 10px 28px -5px rgba(163, 230, 53, 0.35)',
+            'card-glass': '0 12px 35px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #020617;
+      color: #f8fafc;
+    }
+
+    /* Efeito Shimmer para Botões CTA */
+    @keyframes cta-shimmer {
+      0% { transform: translateX(-150%) skewX(-20deg); }
+      50%, 100% { transform: translateX(250%) skewX(-20deg); }
+    }
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: translateX(-150%) skewX(-20deg);
+      animation: cta-shimmer 3.5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* Cards e Opções do Quiz */
+    .quiz-option {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+    .quiz-option:hover {
+      border-color: #10b981;
+      transform: translateY(-2px);
+    }
+    .quiz-option:active {
+      transform: scale(0.98);
+    }
+    .quiz-option.active {
+      border-color: #10b981 !important;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(15, 23, 42, 0.95) 100%) !important;
+      box-shadow: 0 0 25px -3px rgba(16, 185, 129, 0.35) !important;
+    }
+    .quiz-option.active .radio-indicator {
+      border-color: #10b981 !important;
+      background: rgba(16, 185, 129, 0.25) !important;
+    }
+    .quiz-option.active .check-svg {
+      transform: scale(1) !important;
+      opacity: 1 !important;
+    }
+
+    .check-svg {
+      transform: scale(0.6);
+      opacity: 0.3;
+      transition: all 0.2s ease;
+    }
+
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.15); opacity: 0.3; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .ring-pulse { animation: pulse-ring 2.2s infinite ease-in-out; }
+  </style>
+</head>
+<body class="selection:bg-emerald-500 selection:text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <!-- Logo + Título -->
+      <a href="/" class="flex items-center gap-2.5 sm:gap-3 group">
+        <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-xl shadow-lg shadow-emerald-950 text-white font-black">
+          🎾
+        </div>
+        <div>
+          <span class="text-sm sm:text-lg font-extrabold tracking-normal text-white flex items-center gap-1.5 uppercase group-hover:text-emerald-400 transition-colors">
+            <span>Personal</span>
+            <span>Felipe</span>
+            <span>Martins</span>
+          </span>
+          <span class="text-[10px] sm:text-xs text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
+            <svg class="w-3 h-3 text-emerald-400 inline" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            CREF Ativo • Especialista em Tênis & Beach Tennis
+          </span>
+        </div>
+      </a>
+
+      <!-- Status de Vagas -->
+      <div class="hidden sm:inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/30 text-emerald-300 text-xs font-semibold shadow-sm backdrop-blur-sm">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+        </span>
+        <span>Vagas Presenciais Disponíveis • Jundiaí e Região</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION / QUIZ FULLSCREEN GATE -->
+  <section id="quiz-section" class="relative min-h-[calc(100svh-4rem)] sm:min-h-0 flex flex-col justify-center py-4 sm:py-12 lg:py-14 overflow-hidden border-b border-slate-800">
+    <!-- Ambient Gradient Background -->
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none"></div>
+    <div class="absolute top-1/2 right-0 w-[400px] h-[400px] bg-lime-500/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex flex-col justify-center gap-3 sm:gap-6 my-auto">
+      
+      <!-- MOBILE: CARD DO PERSONAL RESUMIDO -->
+      <div class="block lg:hidden">
+        <div class="p-3.5 sm:p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-[0_12px_35px_-5px_rgba(0,0,0,0.7)] backdrop-blur-xl">
+          <div class="flex items-center gap-3.5">
+            <div class="relative w-24 sm:w-28 aspect-[3/4] rounded-xl overflow-hidden border border-slate-700/70 shadow-lg shrink-0">
+              <img src="assets/img/felipe-prescricao-escritorio.webp" alt="Personal Felipe Martins" class="w-full h-full object-cover object-[center_30%]" loading="eager">
+            </div>
+            <div class="min-w-0 flex-1 flex flex-col justify-center">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[10px] sm:text-xs font-black text-emerald-400 w-fit mb-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Tênis & Beach Tennis</span>
+              </div>
+              <div class="text-base sm:text-lg font-black text-white leading-tight">
+                Felipe Martins
+              </div>
+              <div class="text-[11px] text-slate-400 font-medium mb-1">
+                CREF Ativo • Preparador Físico
+              </div>
+              <p class="text-xs text-slate-300 leading-snug">
+                Potência rotacional nos golpes, fôlego e prevenção de "Tennis Elbow".
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRID PRINCIPAL (DESKTOP E MOBILE) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        
+        <!-- COLUNA DA ESQUERDA (DESKTOP): FOTO AUTORIDADE & PILARES -->
+        <div class="hidden lg:flex lg:col-span-5 flex-col gap-4">
+          <div class="relative rounded-3xl overflow-hidden border border-slate-700/80 shadow-[0_20px_50px_rgba(0,0,0,0.8),0_0_35px_rgba(16,185,129,0.12)] bg-slate-900 aspect-[4/5] group">
+            <img src="assets/img/banner-tenis.jpg" alt="Preparação Física de Tênis e Beach Tennis" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" loading="eager">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent opacity-90"></div>
+            
+            <div class="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-slate-700/80 backdrop-blur-md shadow-lg">
+              <span class="relative flex h-2 w-2">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span class="text-[11px] font-semibold text-slate-200">Presencial • Jundiaí & Região</span>
+            </div>
+
+            <div class="absolute bottom-5 left-5 right-5 z-20 p-4 rounded-2xl bg-slate-950/85 border border-slate-700/70 backdrop-blur-md shadow-2xl">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-[10px] font-extrabold uppercase tracking-wider border border-emerald-500/30">
+                  Performance & Prevenção
+                </span>
+                <span class="text-[10px] text-slate-400 font-mono">CREF Ativo</span>
+              </div>
+              <div class="text-xl font-black text-white tracking-tight">Felipe Martins</div>
+              <div class="text-xs text-slate-300 mt-0.5 leading-snug">Personal Trainer & Treinador de Quadra</div>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-xl flex items-center gap-3.5 backdrop-blur-sm">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 text-emerald-400 flex items-center justify-center text-xl shrink-0 border border-emerald-500/30">
+              ⚡
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white flex items-center gap-1.5">
+                <span>Biomecânica dos Golpes Sem Lesão</span>
+                <span class="text-emerald-400 text-[10px]">✓</span>
+              </div>
+              <div class="text-[11px] text-slate-400 mt-0.5 leading-relaxed">
+                A força do saque e forehand vem do core e do quadril, poupando seu cotovelo e ombro.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLUNA DA DIREITA: HEADLINE & QUIZ (O FUNIL) -->
+        <div class="lg:col-span-7 w-full">
+          
+          <!-- Headline Principal -->
+          <div class="text-center lg:text-left mb-3 sm:mb-5">
+            <div class="hidden lg:inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900/90 border border-slate-700/80 text-xs mb-2.5 backdrop-blur-xl">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="text-emerald-400 font-bold">Personal Trainer Esportivo</span>
+              <span class="text-slate-600">•</span>
+              <span class="text-slate-300 font-medium">Tênis & Beach Tennis</span>
+            </div>
+
+            <h1 class="text-xl sm:text-3xl lg:text-[34px] font-extrabold text-white tracking-tight leading-snug sm:leading-[1.25]">
+              Evolua seu jogo com treinos presenciais <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-lime-300">desenhados para o seu esporte</span>
+            </h1>
+            <p class="hidden sm:block mt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Responda a <strong class="text-white">3 perguntas rápidas (30 segundos)</strong> para descobrir a estratégia exata de potência, resistência e prevenção para o seu perfil.
+            </p>
+          </div>
+
+          <!-- CONTAINER DO QUIZ -->
+          <div class="w-full bg-slate-900/95 border border-slate-700/80 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_-10px_rgba(16,185,129,0.12),inset_0_1px_1px_rgba(255,255,255,0.08)] backdrop-blur-2xl relative">
+            
+            <!-- Barra de Progresso -->
+            <div id="quiz-header-bar" class="mb-3.5 sm:mb-5">
+              <div class="flex items-center justify-between text-xs font-bold mb-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span id="quiz-step-label" class="text-slate-300 uppercase tracking-wider text-[10px] sm:text-[11px] font-extrabold">ETAPA 01 DE 03 • MODALIDADE</span>
+                </div>
+                <span id="quiz-step-percent" class="text-emerald-400 font-black tracking-wide bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 text-[10px] sm:text-[11px]">33% Concluído</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden border border-slate-700/60 shadow-inner">
+                <div id="quiz-progress-bar" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-lime-400 transition-all duration-500 rounded-full shadow-[0_0_12px_rgba(52,211,153,0.6)]" style="width: 33%;"></div>
+              </div>
+            </div>
+
+            <!-- FORMULÁRIO DO QUIZ -->
+            <form id="quiz-form" onsubmit="return false;">
+              
+              <!-- ETAPA 1: MODALIDADE PRATICADA -->
+              <div id="quiz-step-1" class="quiz-step">
+                <div class="flex items-center justify-between mb-1.5">
+                  <h3 class="text-base sm:text-lg font-black text-white tracking-tight">1. Qual modalidade você joga ou quer aprender?</h3>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4 leading-relaxed">Cada quadra possui exigências biomecânicas e de deslocamento específicas.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                  
+                  <!-- Opção 1: Tênis de Campo -->
+                  <label class="quiz-option cursor-pointer p-3 sm:p-4 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none transition-all hover:border-emerald-500" onclick="handleOptionSelect(1, 'Tênis de Campo', this)">
+                    <input type="radio" name="modalidade" value="Tênis de Campo" class="sr-only">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-2xl">
+                        🎾
+                      </div>
+                      <div class="radio-indicator w-6 h-6 rounded-full border border-slate-600 bg-slate-900/80 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-emerald-400 check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Tênis de Campo</div>
+                      <div class="text-[11px] text-slate-400 mt-0.5">Quadra rápida ou saibro</div>
+                    </div>
+                  </label>
+
+                  <!-- Opção 2: Beach Tennis -->
+                  <label class="quiz-option cursor-pointer p-3 sm:p-4 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none transition-all hover:border-emerald-500" onclick="handleOptionSelect(1, 'Beach Tennis', this)">
+                    <input type="radio" name="modalidade" value="Beach Tennis" class="sr-only">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-2xl">
+                        🏖️
+                      </div>
+                      <div class="radio-indicator w-6 h-6 rounded-full border border-slate-600 bg-slate-900/80 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-emerald-400 check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Beach Tennis</div>
+                      <div class="text-[11px] text-slate-400 mt-0.5">Quadra de areia e voleios</div>
+                    </div>
+                  </label>
+
+                  <!-- Opção 3: Jogo Ambos -->
+                  <label class="quiz-option cursor-pointer p-3 sm:p-4 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none transition-all hover:border-emerald-500" onclick="handleOptionSelect(1, 'Tênis e Beach Tennis', this)">
+                    <input type="radio" name="modalidade" value="Tênis e Beach Tennis" class="sr-only">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="w-10 h-10 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center text-2xl">
+                        🏆
+                      </div>
+                      <div class="radio-indicator w-6 h-6 rounded-full border border-slate-600 bg-slate-900/80 flex items-center justify-center">
+                        <svg class="w-3.5 h-3.5 text-emerald-400 check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Jogo as Duas</div>
+                      <div class="text-[11px] text-slate-400 mt-0.5">Pratico ambas com frequência</div>
+                    </div>
+                  </label>
+
+                </div>
+              </div>
+
+              <!-- ETAPA 2: MAIOR DESAFIO OU OBJETIVO -->
+              <div id="quiz-step-2" class="quiz-step hidden">
+                <h3 class="text-base sm:text-lg font-bold text-white mb-1">2. Qual é a sua prioridade esportiva agora?</h3>
+                <p class="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4">Selecione o ponto em que você mais deseja notar diferença:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                  
+                  <!-- 1. Potência nos Golpes -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex items-center gap-3 group select-none" onclick="handleOptionSelect(2, 'Mais Potência e Velocidade', this)">
+                    <input type="radio" name="objetivo" value="Mais Potência e Velocidade" class="sr-only">
+                    <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-xl shrink-0">
+                      ⚡
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Mais Potência & Velocidade</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Saque e forehand mais pesados pelo quadril</div>
+                    </div>
+                  </label>
+
+                  <!-- 2. Fôlego e Resistência -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex items-center gap-3 group select-none" onclick="handleOptionSelect(2, 'Resistência Física e Fôlego', this)">
+                    <input type="radio" name="objetivo" value="Resistência Física e Fôlego" class="sr-only">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center text-xl shrink-0">
+                      🏃
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Resistência Física & Fôlego</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Não morrer no 2º set e manter o ritmo</div>
+                    </div>
+                  </label>
+
+                  <!-- 3. Prevenção de Dores -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex items-center gap-3 group select-none" onclick="handleOptionSelect(2, 'Prevenção e Alívio de Dores', this)">
+                    <input type="radio" name="objetivo" value="Prevenção e Alívio de Dores" class="sr-only">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-xl shrink-0">
+                      🛡️
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Prevenção & Alívio de Dores</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Blindar cotovelo (epicondilite), ombro e costas</div>
+                    </div>
+                  </label>
+
+                  <!-- 4. Aulas Práticas & Técnica -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex items-center gap-3 group select-none" onclick="handleOptionSelect(2, 'Aulas Práticas e Técnica', this)">
+                    <input type="radio" name="objetivo" value="Aulas Práticas e Técnica" class="sr-only">
+                    <div class="w-10 h-10 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center text-xl shrink-0">
+                      🎯
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Aulas Práticas & Técnica</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Fundamentos, regularidade e estratégia de jogo</div>
+                    </div>
+                  </label>
+
+                </div>
+
+                <div class="mt-4 flex justify-start">
+                  <button type="button" onclick="goToStep(1)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors py-1">
+                    ← Voltar para o Passo 1
+                  </button>
+                </div>
+              </div>
+
+              <!-- ETAPA 3: NÍVEL ATUAL -->
+              <div id="quiz-step-3" class="quiz-step hidden">
+                <h3 class="text-base sm:text-lg font-bold text-white mb-1">3. Qual é o seu nível atual de jogo?</h3>
+                <p class="text-xs sm:text-sm text-slate-400 mb-3 sm:mb-4">Para calibrarmos a intensidade e a progressão dos treinos:</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3">
+                  
+                  <!-- Iniciante -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none" onclick="handleOptionSelect(3, 'Iniciante', this)">
+                    <input type="radio" name="nivel" value="Iniciante" class="sr-only">
+                    <div class="text-xl mb-2">🟢</div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Iniciante</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Começando agora ou querendo aprender do zero</div>
+                    </div>
+                  </label>
+
+                  <!-- Intermediário -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none" onclick="handleOptionSelect(3, 'Intermediário', this)">
+                    <input type="radio" name="nivel" value="Intermediário" class="sr-only">
+                    <div class="text-xl mb-2">🟡</div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Intermediário</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Já joga partidas regulares e quer subir de nível</div>
+                    </div>
+                  </label>
+
+                  <!-- Avançado / Torneios -->
+                  <label class="quiz-option cursor-pointer p-3.5 rounded-2xl bg-slate-800/70 border border-slate-700/80 flex flex-col justify-between group select-none" onclick="handleOptionSelect(3, 'Avançado / Torneios', this)">
+                    <input type="radio" name="nivel" value="Avançado / Torneios" class="sr-only">
+                    <div class="text-xl mb-2">🔴</div>
+                    <div>
+                      <div class="text-sm font-bold text-white group-hover:text-emerald-400 transition-colors">Avançado / Torneios</div>
+                      <div class="text-xs text-slate-400 mt-0.5">Competitivo, busca alta performance e ranking</div>
+                    </div>
+                  </label>
+
+                </div>
+
+                <div class="mt-4 flex justify-start">
+                  <button type="button" onclick="goToStep(2)" class="text-xs text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors py-1">
+                    ← Voltar para o Passo 2
+                  </button>
+                </div>
+              </div>
+
+              <!-- TELA DE LOADING INTERMEDIÁRIA (2.5s) -->
+              <div id="quiz-loading" class="quiz-step hidden text-center py-6 sm:py-8">
+                <div class="relative w-14 h-14 mx-auto mb-4">
+                  <div class="absolute inset-0 rounded-full bg-emerald-500/10 ring-pulse"></div>
+                  <div class="w-full h-full border-4 border-slate-800 border-t-emerald-400 rounded-full animate-spin"></div>
+                  <div class="absolute inset-0 flex items-center justify-center text-emerald-400 text-lg">
+                    🎾
+                  </div>
+                </div>
+
+                <h3 class="text-lg sm:text-xl font-black text-white mb-1.5 tracking-tight">Personalizando seu protocolo esportivo...</h3>
+                
+                <div class="min-h-[24px] flex items-center justify-center mb-5 px-2">
+                  <p id="loading-sequential-text" class="text-xs sm:text-sm text-emerald-400 font-semibold transition-all duration-300">
+                    Mapeando padrão biomecânico dos golpes...
+                  </p>
+                </div>
+
+                <div class="max-w-md mx-auto w-full px-2">
+                  <div class="w-full bg-slate-800/90 rounded-full h-3 p-0.5 overflow-hidden border border-slate-700/80 shadow-inner mb-2">
+                    <div id="loading-progress-fill" class="h-full bg-gradient-to-r from-emerald-500 via-teal-400 to-lime-300 rounded-full transition-[width] duration-75 ease-linear" style="width: 0%;"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-xs text-slate-400 font-medium px-1">
+                    <span class="flex items-center gap-1.5">
+                      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      Configurando estratégia
+                    </span>
+                    <span id="loading-progress-percent" class="text-emerald-400 font-mono font-bold">0%</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- RESULTADO / DIAGNÓSTICO DO QUIZ -->
+              <div id="quiz-result" class="quiz-step hidden text-center py-3 sm:py-4">
+                <div class="w-14 h-14 mx-auto mb-3.5 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl border border-emerald-500/40">
+                  ✓
+                </div>
+
+                <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-500/30">
+                  Estratégia Esportiva Desbloqueada
+                </span>
+
+                <h3 id="result-headline" class="text-lg sm:text-2xl font-black text-white mb-2 leading-tight">
+                  Protocolo Sob Medida Preparado!
+                </h3>
+
+                <p id="result-summary" class="text-xs sm:text-sm text-slate-300 max-w-lg mx-auto mb-5 leading-relaxed">
+                  Com base na sua modalidade e objetivo, estruturamos um plano integrado de preparação física e quadra focado em acelerar seu jogo sem risco de dores ou sobrecarga.
+                </p>
+
+                <!-- Gatilho de Vagas -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-5">
+                  <span>🔒</span>
+                  <span>Vagas presenciais limitadas na grade de horários de Jundiaí e região</span>
+                </div>
+
+                <!-- BOTÃO DIRETO PARA O WHATSAPP COM OS DADOS DO QUIZ -->
+                <div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
+                  <a id="btn-result-whatsapp"
+                     href="#"
+                     class="btn-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-sm sm:text-base shadow-glow-emerald transition-all transform hover:-translate-y-0.5 active:scale-95">
+                    <svg class="w-5 h-5 fill-current shrink-0" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.475-.15-.675.15-.2.301-.775.979-.95 1.179-.175.2-.351.226-.651.076-.301-.15-1.27-.468-2.42-1.492-.894-.797-1.498-1.782-1.674-2.083-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.175.2-.301.301-.501.101-.2.051-.376-.025-.526-.076-.151-.676-1.63-.926-2.233-.243-.587-.49-.508-.675-.517-.175-.01-.375-.01-.576-.01s-.526.076-.802.376c-.276.301-1.053 1.028-1.053 2.507s1.079 2.908 1.229 3.109c.151.2 2.124 3.243 5.145 4.549.719.311 1.281.497 1.719.636.723.23 1.38.197 1.9.12.58-.087 1.78-.727 2.03-1.429.251-.702.251-1.303.176-1.429-.076-.126-.276-.201-.577-.352z"/>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.982-1.408A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.644 0-3.17-.487-4.455-1.328l-.32-.208-2.964.837.838-2.888-.228-.344A8.17 8.17 0 013.8 12c0-4.522 3.678-8.2 8.2-8.2s8.2 3.678 8.2 8.2-3.678 8.2-8.2 8.2z"/>
+                    </svg>
+                    <span>Liberar Plano no WhatsApp</span>
+                  </a>
+
+                  <a href="#metodologia"
+                     class="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-4 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition-colors">
+                    <span>Conhecer a Metodologia</span>
+                    <span>↓</span>
+                  </a>
+                </div>
+
+                <div class="mt-4 flex items-center justify-center gap-3 text-xs text-slate-500">
+                  <span>🔒 Atendimento direto com o treinador</span>
+                  <span>•</span>
+                  <button type="button" onclick="resetQuiz()" class="text-emerald-400 hover:underline">
+                    Refazer teste
+                  </button>
+                </div>
+              </div>
+
+            </form>
+
+            <!-- Micro-Trust Bar -->
+            <div class="hidden sm:flex mt-3.5 pt-3 border-t border-slate-800/80 flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">🔒</span>
+                <span>Atendimento 100% individualizado</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">⏱️</span>
+                <span>Teste de 30 segundos</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <span class="text-emerald-400 font-bold">📍</span>
+                <span>Jundiaí e Região</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: POR QUE TENISTAS SENTEM DORES E COMO A METODOLOGIA RESOLVE -->
+  <section id="metodologia" class="py-16 sm:py-20 bg-slate-900/60 border-b border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wider uppercase border border-emerald-500/30 mb-3">
+          Ciência Aplicada à Quadra
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+          Por que apenas jogar partidas <span class="text-emerald-400">não é suficiente</span> para evoluir de nível?
+        </h2>
+        <p class="mt-3 text-sm sm:text-base text-slate-300 leading-relaxed">
+          Tanto o Tênis quanto o Beach Tennis exigem movimentos assimétricos de alta velocidade rotacional. Sem a preparação correta, o corpo compensa onde não deve — gerando o famoso cotovelo de tenista, dores no ombro e fadiga precoce.
+        </p>
+      </div>
+
+      <!-- 4 Pilares da Metodologia -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Pilar 1 -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-card-glass hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-2xl mb-4 border border-emerald-500/20">
+              ⚡
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">1. Potência Rotacional</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              A força do saque e do forehand não nasce no braço, mas na transferência de energia dos pés, quadril e core até a raquete.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-bold text-emerald-400">
+            ✓ Golpes mais pesados sem fadiga
+          </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-card-glass hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-teal-500/15 text-teal-400 flex items-center justify-center text-2xl mb-4 border border-teal-500/20">
+              🛡️
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">2. Blindagem Articular</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Fortalecimento do manguito rotador, extensores do punho e estabilizadores escapulares para erradicar a epicondilite ("Tennis Elbow").
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-bold text-teal-400">
+            ✓ Zero dores articulares pós-jogo
+          </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-card-glass hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-lime-500/15 text-lime-400 flex items-center justify-center text-2xl mb-4 border border-lime-500/20">
+              👟
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">3. Footwork & Agilidade</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Treinos de desaceleração, freio e mudança brusca de direção específicos para quadra dura, saibro e areia fofa.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-bold text-lime-400">
+            ✓ Chegar equilibrado em cada bola
+          </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 shadow-card-glass hover:border-emerald-500/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-2xl mb-4 border border-amber-500/20">
+              🫀
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">4. Fôlego Intermitente</h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              O tênis é composto por tiros curtos e pausas. Condicionamos seu sistema cardiovascular para recuperação rápida entre os pontos.
+            </p>
+          </div>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] font-bold text-amber-400">
+            ✓ Energia total no 2º e 3º set
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: QUEM É O PROFISSIONAL FELIPE MARTINS -->
+  <section class="py-16 sm:py-20 border-b border-slate-800 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl overflow-hidden border border-slate-700 shadow-2xl bg-slate-900 aspect-[4/5] max-w-md mx-auto">
+            <img src="assets/img/felipe-portrait.webp" alt="Felipe Martins Personal Trainer" class="w-full h-full object-cover object-top" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+            <div class="absolute bottom-5 left-5 right-5 p-4 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-800">
+              <div class="text-lg font-black text-white">Felipe Martins</div>
+              <div class="text-xs text-emerald-400 font-semibold">Profissional de Educação Física • CREF Ativo</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wider uppercase border border-emerald-500/30 mb-3">
+            Sobre o Treinador
+          </span>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight mb-4">
+            Acompanhamento Presencial com Quem Entende a Realidade do Tenista
+          </h2>
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-4">
+            Meu trabalho é levar a você uma preparação física de alto rendimento adaptada à sua rotina, idade e objetivos. Seja você um praticante recreativo que deseja jogar aos finais de semana sem dores na segunda-feira, ou alguém que disputa torneios e busca vencer mais partidas.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-emerald-400 text-lg">✓</span>
+              <div class="text-xs sm:text-sm text-slate-200">
+                <strong>Atendimento Onde Você Estiver:</strong> No seu condomínio, academia, residência ou em quadras parceiras em Jundiaí.
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-emerald-400 text-lg">✓</span>
+              <div class="text-xs sm:text-sm text-slate-200">
+                <strong>Materiais Levados até Você:</strong> Elásticos de potência rotacional, cones de agilidade, medicine balls e monitoramento.
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-emerald-400 text-lg">✓</span>
+              <div class="text-xs sm:text-sm text-slate-200">
+                <strong>Aulas de Tênis & Beach:</strong> Aperfeiçoamento prático dos golpes, empunhaduras corretas e tática.
+              </div>
+            </div>
+            <div class="flex items-start gap-3 p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-emerald-400 text-lg">✓</span>
+              <div class="text-xs sm:text-sm text-slate-200">
+                <strong>Prescrição Individual:</strong> Avaliação postural e biomecânica prévia sem treinos genéricos de gaveta.
+              </div>
+            </div>
+          </div>
+
+          <a href="#quiz-section"
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-glow-emerald transition-all">
+            <span>Iniciar Teste Rápido de 30s</span>
+            <span>↑</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: PERGUNTAS FREQUENTES (FAQ) -->
+  <section class="py-16 sm:py-20 bg-slate-900/40 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-12">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold tracking-wider uppercase border border-emerald-500/30 mb-3">
+          Tire Suas Dúvidas
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Perguntas Frequentes de Praticantes
+        </h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <h3 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+            <span>Nunca fiz preparação física para tênis, posso começar do zero?</span>
+            <span class="text-emerald-400">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Com certeza! A maioria dos praticantes começa sentindo que falta fôlego ou sentindo dores após as partidas. Iniciamos com uma avaliação do seu padrão de movimento e construímos a base de força e estabilidade de forma segura e progressiva.
+          </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <h3 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+            <span>Já tenho dores no cotovelo (epicondilite / Tennis Elbow), o treino ajuda?</span>
+            <span class="text-emerald-400">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Sim! A epicondilite acontece quando o antebraço absorve impactos que deveriam ser dissipados pela escápula, tronco e pernas. Trabalhamos exercícios específicos de reabilitação e fortalecimento dos músculos do antebraço e manguito, além de ajustar a mecânica para você voltar a jogar sem dor.
+          </p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <h3 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+            <span>O treino presencial é feito na quadra ou na academia?</span>
+            <span class="text-emerald-400">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Podemos combinar os dois formatos! Treinos de preparação física na academia/condomínio para ganho de força e estabilidade, e sessões práticas na quadra com deslocamento, footwork e drills específicos de bola e raquete.
+          </p>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="p-5 rounded-2xl bg-slate-900/90 border border-slate-800">
+          <h3 class="text-base font-bold text-white mb-2 flex items-center justify-between">
+            <span>Como faço para consultar valores e horários disponíveis?</span>
+            <span class="text-emerald-400">+</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            Basta responder ao Quiz rápido acima ou clicar no botão do WhatsApp. Você será direcionado para uma conversa direta comigo, onde verificamos sua região em Jundiaí e os melhores horários para o seu atendimento.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-14 bg-gradient-to-b from-slate-900 to-slate-950 text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-4 border border-emerald-500/30">
+        🎾
+      </div>
+      <h2 class="text-2xl sm:text-3xl font-black text-white mb-3">
+        Pronto para Elevar Seu Nível na Quadra?
+      </h2>
+      <p class="text-sm text-slate-400 mb-6 max-w-md mx-auto">
+        Dê o primeiro passo para jogar com mais potência, velocidade e sem dores articulares.
+      </p>
+      <a href="#quiz-section"
+         class="btn-shimmer inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-base shadow-glow-emerald transition-all transform hover:-translate-y-0.5">
+        <span>Fazer Triagem Esportiva Rápida (30s)</span>
+        <span>↑</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 bg-slate-950 border-t border-slate-900 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p class="mb-1">Personal Felipe Martins • Especialista em Tênis & Beach Tennis</p>
+      <p>CREF Ativo • Atendimento Presencial em Jundiaí e Região • Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DO QUIZ & FUNIL -->
+  <script>
+    const userAnswers = {
+      modalidade: '',
+      objetivo: '',
+      nivel: ''
+    };
+
+    const whatsappNumber = '5511961343759';
+
+    function updateProgressBar(step) {
+      const progressBar = document.getElementById('quiz-progress-bar');
+      const stepLabel = document.getElementById('quiz-step-label');
+      const stepPercent = document.getElementById('quiz-step-percent');
+
+      if (step === 1) {
+        progressBar.style.width = '33%';
+        stepLabel.textContent = 'ETAPA 01 DE 03 • MODALIDADE';
+        stepPercent.textContent = '33% Concluído';
+      } else if (step === 2) {
+        progressBar.style.width = '66%';
+        stepLabel.textContent = 'ETAPA 02 DE 03 • OBJETIVO PRINCIPAL';
+        stepPercent.textContent = '66% Concluído';
+      } else if (step === 3) {
+        progressBar.style.width = '100%';
+        stepLabel.textContent = 'ETAPA 03 DE 03 • NÍVEL ATUAL';
+        stepPercent.textContent = '100% Concluído';
+      }
+    }
+
+    function goToStep(step) {
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      const target = document.getElementById(`quiz-step-${step}`);
+      if (target) {
+        target.classList.remove('hidden');
+      }
+      updateProgressBar(step);
+    }
+
+    function handleOptionSelect(step, value, element) {
+      if (element) {
+        const parent = element.parentElement;
+        if (parent) {
+          parent.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('active'));
+        }
+        element.classList.add('active');
+      }
+
+      if (step === 1) {
+        userAnswers.modalidade = value;
+        setTimeout(() => goToStep(2), 260);
+      } else if (step === 2) {
+        userAnswers.objetivo = value;
+        setTimeout(() => goToStep(3), 260);
+      } else if (step === 3) {
+        userAnswers.nivel = value;
+        setTimeout(startLoadingSequence, 260);
+      }
+    }
+
+    function startLoadingSequence() {
+      document.getElementById('quiz-header-bar').classList.add('hidden');
+      document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+      document.getElementById('quiz-loading').classList.remove('hidden');
+
+      const fill = document.getElementById('loading-progress-fill');
+      const percentEl = document.getElementById('loading-progress-percent');
+      const seqText = document.getElementById('loading-sequential-text');
+
+      const messages = [
+        'Mapeando padrão biomecânico dos golpes...',
+        'Calculando protocolo de força rotacional e mobilidade...',
+        'Estruturando plano de prevenção de cotovelo e ombro...',
+        'Protocolo de alta performance finalizado!'
+      ];
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 4;
+        if (progress > 100) progress = 100;
+
+        fill.style.width = progress + '%';
+        percentEl.textContent = progress + '%';
+
+        if (progress === 25) seqText.textContent = messages[1];
+        if (progress === 60) seqText.textContent = messages[2];
+        if (progress === 90) seqText.textContent = messages[3];
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(showResult, 350);
+        }
+      }, 70);
+    }
+
+    function showResult() {
+      document.getElementById('quiz-loading').classList.add('hidden');
+      document.getElementById('quiz-result').classList.remove('hidden');
+
+      const headline = document.getElementById('result-headline');
+      const summary = document.getElementById('result-summary');
+      const btnWa = document.getElementById('btn-result-whatsapp');
+
+      headline.textContent = `Plano Sob Medida: ${userAnswers.modalidade}`;
+      summary.textContent = `Configuramos seu protocolo com foco prioritário em "${userAnswers.objetivo}" para o seu nível "${userAnswers.nivel}". Vamos agora alinhar sua disponibilidade e iniciar seus treinos presenciais!`;
+
+      // Monta a mensagem personalizada para o WhatsApp
+      const waMessage = `Olá Felipe! Fiz a triagem esportiva no site para atendimento de Personal:
+🎾 Modalidade: ${userAnswers.modalidade}
+⚡ Foco Principal: ${userAnswers.objetivo}
+📊 Meu Nível Atual: ${userAnswers.nivel}
+
+Gostaria de ver sua grade de horários disponíveis para alinharmos o início!`;
+
+      const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
+      btnWa.href = waUrl;
+    }
+
+    function resetQuiz() {
+      userAnswers.modalidade = '';
+      userAnswers.objetivo = '';
+      userAnswers.nivel = '';
+      document.querySelectorAll('.quiz-option').forEach(el => el.classList.remove('active'));
+      document.getElementById('quiz-header-bar').classList.remove('hidden');
+      goToStep(1);
+    }
+  </script>
+
+</body>
+</html>
