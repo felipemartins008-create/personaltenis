@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
   let pathname = decodeURI(reqUrl.pathname);
 
   // Rota do link de divulgação /c ou /link (com Open Graph WhatsApp)
-  if (pathname === '/c' || pathname === '/link') {
+  if (pathname === '/c' || pathname === '/link' || pathname === '/api/c' || pathname === '/api/c.js' || pathname.startsWith('/api/c')) {
     const handler = require('./api/c');
     req.query = Object.fromEntries(reqUrl.searchParams);
     return handler(req, res);

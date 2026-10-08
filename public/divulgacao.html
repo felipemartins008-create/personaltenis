@@ -333,23 +333,23 @@
           </label>
           <div class="banner-selector">
             <div class="banner-option active" onclick="selecionarBanner('saibro', this)">
-              <img src="assets/img/tenis-raquete-saibro.png" alt="Raquete no Saibro" />
+              <img src="assets/img/og-saibro.jpg" alt="Raquete no Saibro" />
               <span>🎾 Raquete & Saibro</span>
             </div>
             <div class="banner-option" onclick="selecionarBanner('saque', this)">
-              <img src="assets/img/tenis-jogadora-saque.png" alt="Saque em Saibro" />
+              <img src="assets/img/og-saque.jpg" alt="Saque em Saibro" />
               <span>⚡ Saque & Ataque</span>
             </div>
             <div class="banner-option" onclick="selecionarBanner('personal', this)">
-              <img src="assets/img/felipe-portrait.jpg" alt="Personal Felipe Martins" />
+              <img src="assets/img/og-personal.jpg" alt="Personal Felipe Martins" />
               <span>💪 Personal Felipe</span>
             </div>
             <div class="banner-option" onclick="selecionarBanner('remada', this)">
-              <img src="assets/img/treino-forca-remada.png" alt="Força e Manguito" />
+              <img src="assets/img/og-remada.jpg" alt="Força e Manguito" />
               <span>🛡️ Prevenção & Força</span>
             </div>
             <div class="banner-option" onclick="selecionarBanner('beach', this)">
-              <img src="assets/img/banner-beach-tennis.jpg" alt="Beach Tennis" />
+              <img src="assets/img/og-beach.jpg" alt="Beach Tennis" />
               <span>🏖️ Beach Tennis</span>
             </div>
           </div>
@@ -386,7 +386,7 @@
 
           <div class="whatsapp-bubble">
             <div class="og-card" onclick="window.open('/c', '_blank')">
-              <img src="assets/img/banner-tenis.jpg" class="og-img-preview" id="simImage" alt="Card Preview" />
+              <img src="assets/img/og-saibro.jpg" class="og-img-preview" id="simImage" alt="Card Preview" />
               <div class="og-text">
                 <div class="og-title" id="simTitle">🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins</div>
                 <div class="og-desc" id="simDesc">Evolua seu jogo de Tênis e Beach Tennis: mais potência no saque e forehand, fôlego para 3 sets e zero dores no cotovelo.</div>
@@ -510,23 +510,23 @@ Estruturei um acompanhamento presencial focado 100% no esporte:
       el.classList.add('active');
 
       if (estilo === 'saque') {
-        simImage.src = 'assets/img/tenis-jogadora-saque.png';
+        simImage.src = 'assets/img/og-saque.jpg';
         simTitle.textContent = '⚡ Potência no Saque e Forehand | Personal Felipe Martins';
         simDesc.textContent = 'Mais velocidade de bola através da biomecânica correta e zero dores no cotovelo e ombro.';
       } else if (estilo === 'personal') {
-        simImage.src = 'assets/img/felipe-portrait.jpg';
-        simTitle.textContent = '💪 Personal Trainer Felipe Martins | Tênis & Beach Tennis';
-        simDesc.textContent = 'Acompanhamento presencial exclusivo com CREF ativo em Jundiaí e região.';
+        simImage.src = 'assets/img/og-personal.jpg';
+        simTitle.textContent = '💪 Personal Trainer Felipe Martins | Preparador Físico';
+        simDesc.textContent = 'Acompanhamento presencial exclusivo com CREF ativo em Jundiaí e região. Agende sua aula experimental.';
       } else if (estilo === 'remada') {
-        simImage.src = 'assets/img/treino-forca-remada.png';
+        simImage.src = 'assets/img/og-remada.jpg';
         simTitle.textContent = '🛡️ Prevenção de Tennis Elbow & Força | Felipe Martins';
         simDesc.textContent = 'Blindagem articular do cotovelo e manguito com preparação física personalizada.';
       } else if (estilo === 'beach') {
-        simImage.src = 'assets/img/banner-beach-tennis.jpg';
+        simImage.src = 'assets/img/og-beach.jpg';
         simTitle.textContent = '🏖️ Beach Tennis: Preparação Física & Aulas | Felipe Martins';
         simDesc.textContent = 'Ganhe agilidade na areia, smashes explosivos e fôlego para jogos longos sem lesões.';
       } else {
-        simImage.src = 'assets/img/tenis-raquete-saibro.png';
+        simImage.src = 'assets/img/og-saibro.jpg';
         simTitle.textContent = '🎾 Tênis: Preparação Física & Aulas no Saibro | Felipe Martins';
         simDesc.textContent = 'Footwork, precisão e potência nos golpes com acompanhamento presencial em Jundiaí e região.';
       }
