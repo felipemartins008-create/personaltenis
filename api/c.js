@@ -76,19 +76,17 @@ module.exports = (req, res) => {
   <meta name="twitter:description" content="${pageDesc}" />
   <meta name="twitter:image" content="${bannerImg}" />
 
-  <!-- Redirecionamento instantâneo para o Funil de Landing Page -->
+  <!-- Redirecionamento instantâneo via JS (scrapers do WhatsApp não executam JS e leem os meta tags com perfeição) -->
   <script>
     window.location.replace('${redirectUrl}');
   </script>
-  <noscript>
-    <meta http-equiv="refresh" content="0;url=${redirectUrl}">
-  </noscript>
 </head>
 <body style="background:#020617;color:#94a3b8;font-family:system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:20px;text-align:center;">
   <div>
     <div style="font-size:36px;margin-bottom:12px;">🎾</div>
     <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Personal Tênis & Beach Tennis</div>
-    <div style="font-size:14px;color:#34d399;">Carregando seu teste e estratégia de jogo...</div>
+    <div style="font-size:14px;color:#34d399;margin-bottom:14px;">Carregando seu plano de jogo...</div>
+    <a href="${redirectUrl}" style="color:#10b981;font-size:13px;text-decoration:underline;">Clique aqui caso não seja redirecionado</a>
   </div>
 </body>
 </html>`;
