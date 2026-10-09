@@ -458,16 +458,16 @@
 
     function getGeneratedLink() {
       const base = getBaseUrl();
-      if (currentBannerStyle === 'saque') {
-        return `${base}/c?banner=saque`;
-      } else if (currentBannerStyle === 'personal') {
-        return `${base}/c?banner=personal`;
+      if (currentBannerStyle === 'personal') {
+        return `${base}/c/personal`;
+      } else if (currentBannerStyle === 'saque') {
+        return `${base}/c/saque`;
       } else if (currentBannerStyle === 'remada') {
-        return `${base}/c?banner=remada`;
+        return `${base}/c/remada`;
       } else if (currentBannerStyle === 'beach') {
-        return `${base}/c?modalidade=beach`;
+        return `${base}/c/beach`;
       }
-      return `${base}/c`; // default: saibro
+      return `${base}/c/saibro`;
     }
 
     function updateCopy() {

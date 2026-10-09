@@ -6,15 +6,27 @@ module.exports = (req, res) => {
   let query = req.query || {};
   if (!query || Object.keys(query).length === 0) {
     try {
-      const parsedUrl = new URL(req.url, 'http://localhost');
+      const parsedUrl = new URL(req.url, baseUrl);
       query = Object.fromEntries(parsedUrl.searchParams);
+      const parts = parsedUrl.pathname.split('/').filter(Boolean);
+      if ((parts[0] === 'c' || parts[0] === 'link') && parts[1]) {
+        query.banner = parts[1];
+      }
     } catch (e) {
       query = {};
     }
   }
 
+  if (!query.banner) {
+    const cleanPath = (req.url || '').split('?')[0];
+    const parts = cleanPath.split('/').filter(Boolean);
+    if ((parts[0] === 'c' || parts[0] === 'link') && parts[1]) {
+      query.banner = parts[1];
+    }
+  }
+
   const modalidade = query.modalidade;
-  const banner = query.banner;
+  const banner = query.banner || 'saibro';
 
   let pageTitle = '🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins';
   let pageDesc = 'Fique mais rápido, ágil, resistente e previna lesões com preparação física específica. Vagas presenciais em Jundiaí e região.';
@@ -45,9 +57,14 @@ module.exports = (req, res) => {
   }
 
   const redirectUrl = `/?src=grupo_tenis${modalidade ? '&m=' + encodeURIComponent(modalidade) : ''}${banner ? '&b=' + encodeURIComponent(banner) : ''}`;
+  const canonicalUrl = `${baseUrl}/c/${banner}`;
+
+  // Detecção de Scraper/Robô (WhatsApp, Facebook, Twitter, Telegram, etc.)
+  const ua = (req.headers['user-agent'] || '').toLowerCase();
+  const isBot = /whatsapp|facebookexternalhit|facebot|twitterbot|telegrambot|linkedinbot|slackbot|discordbot/i.test(ua);
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
-  // Cache CDN para resposta instantânea ao scraper do WhatsApp
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800');
 
   const html = `<!DOCTYPE html>
@@ -57,8 +74,10 @@ module.exports = (req, res) => {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${pageTitle}</title>
 
-  <!-- Open Graph / WhatsApp Preview Tags -->
+  <!-- Open Graph Obrigatório para WhatsApp / Facebook -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Personal Tênis • Felipe Martins" />
+  <meta property="og:url" content="${canonicalUrl}" />
   <meta property="og:title" content="${pageTitle}" />
   <meta property="og:description" content="${pageDesc}" />
   <meta name="description" content="${pageDesc}" />
@@ -68,7 +87,7 @@ module.exports = (req, res) => {
   <meta property="og:image:width" content="800" />
   <meta property="og:image:height" content="800" />
   <meta property="og:image:alt" content="Preparação Física e Aulas de Tênis" />
-  <meta property="og:site_name" content="Personal Tênis • Felipe Martins" />
+  <link rel="image_src" href="${bannerImg}" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -76,17 +95,19 @@ module.exports = (req, res) => {
   <meta name="twitter:description" content="${pageDesc}" />
   <meta name="twitter:image" content="${bannerImg}" />
 
-  <!-- Redirecionamento instantâneo via JS (scrapers do WhatsApp não executam JS e leem os meta tags com perfeição) -->
+  ${!isBot ? `
+  <!-- Redirecionamento instantâneo exclusivo para usuários reais -->
   <script>
     window.location.replace('${redirectUrl}');
   </script>
+  ` : ''}
 </head>
 <body style="background:#020617;color:#94a3b8;font-family:system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:20px;text-align:center;">
   <div>
     <div style="font-size:36px;margin-bottom:12px;">🎾</div>
     <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Personal Tênis & Beach Tennis</div>
     <div style="font-size:14px;color:#34d399;margin-bottom:14px;">Carregando seu plano de jogo...</div>
-    <a href="${redirectUrl}" style="color:#10b981;font-size:13px;text-decoration:underline;">Clique aqui caso não seja redirecionado</a>
+    <a href="${redirectUrl}" style="color:#10b981;font-size:13px;text-decoration:underline;">Clique aqui para continuar</a>
   </div>
 </body>
 </html>`;

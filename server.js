@@ -22,10 +22,15 @@ const server = http.createServer((req, res) => {
   const reqUrl = new URL(req.url, `http://${req.headers.host || 'localhost:3000'}`);
   let pathname = decodeURI(reqUrl.pathname);
 
-  // Rota do link de divulgação /c ou /link (com Open Graph WhatsApp)
-  if (pathname === '/c' || pathname === '/link' || pathname === '/api/c' || pathname === '/api/c.js' || pathname.startsWith('/api/c')) {
+  // Rota do link de divulgação /c, /c/:banner, /link, /link/:banner ou /api/c
+  if (pathname === '/c' || pathname.startsWith('/c/') || pathname === '/link' || pathname.startsWith('/link/') || pathname === '/api/c' || pathname === '/api/c.js' || pathname.startsWith('/api/c')) {
     const handler = require('./api/c');
     req.query = Object.fromEntries(reqUrl.searchParams);
+    if (pathname.startsWith('/c/')) {
+      req.query.banner = pathname.replace('/c/', '');
+    } else if (pathname.startsWith('/link/')) {
+      req.query.banner = pathname.replace('/link/', '');
+    }
     return handler(req, res);
   }
 
