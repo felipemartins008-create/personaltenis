@@ -87,8 +87,6 @@ module.exports = (req, res) => {
   <meta property="og:site_name" content="Personal Tênis • Felipe Martins" />
   <meta property="og:url" content="${canonicalUrl}" />
   <meta property="og:title" content="${pageTitle}" />
-  <meta property="og:description" content="${pageDesc}" />
-  <meta name="description" content="${pageDesc}" />
   <meta property="og:image" content="${bannerImg}" />
   <meta property="og:image:secure_url" content="${bannerImg}" />
   <meta property="og:image:type" content="image/jpeg" />
@@ -100,7 +98,6 @@ module.exports = (req, res) => {
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${pageTitle}" />
-  <meta name="twitter:description" content="${pageDesc}" />
   <meta name="twitter:image" content="${bannerImg}" />
 
   <meta http-equiv="refresh" content="0;url=${redirectUrl}" />
