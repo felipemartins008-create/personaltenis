@@ -152,43 +152,25 @@
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
     }
 
-    /* Seletor de Banner Open Graph */
-    .banner-selector {
+    /* Card da Imagem Fixa */
+    .banner-fixed-card {
       display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-    }
-    .banner-option {
-      cursor: pointer;
-      border: 2px solid #1e293b;
-      border-radius: 12px;
-      overflow: hidden;
-      padding: 4px;
+      align-items: center;
+      gap: 16px;
       background: #020617;
-      min-width: 130px;
-      flex: 1;
-      text-align: center;
-      transition: all 0.2s;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
     }
-    .banner-option.active {
-      border-color: #10b981;
-      box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
-    }
-    .banner-option img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
+    .banner-fixed-thumb {
+      width: 76px;
+      height: 76px;
+      border-radius: 12px;
       object-fit: cover;
-      border-radius: 8px;
-      display: block;
-    }
-    .banner-option span {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #cbd5e1;
-      margin-top: 6px;
+      border: 2px solid #10b981;
+      box-shadow: 0 0 15px rgba(16, 185, 129, 0.25);
+      flex-shrink: 0;
     }
 
     /* Simulador WhatsApp */
@@ -296,7 +278,7 @@
       <div class="badge-top">🎾 Personal Felipe Martins • Grupo de Tênis</div>
       <h1>Link & Mensagem de Divulgação</h1>
       <p class="subtitle">
-        Link oficial com card de imagem e headline configurado para divulgar no seu grupo de WhatsApp de praticantes de Tênis e Beach Tennis. O lead clica, passa pelo Funil/Quiz e vai direto para o seu WhatsApp!
+        Link oficial com a imagem fixa <strong>Personal para Tenistas</strong> configurado para divulgar no seu grupo de WhatsApp. O tenista clica na foto, passa pelo Quiz e chega pronto no seu WhatsApp!
       </p>
     </header>
 
@@ -304,55 +286,27 @@
       <!-- Coluna da Esquerda: Link & Copy Pronta -->
       <div class="card">
         <div class="card-title">
-          <span>⚙️</span> Painel de Geração de Link
+          <span>⚙️</span> Link & Mensagem Oficial
         </div>
 
-        <!-- Passo 1: Seletor de Tema do Card -->
-        <div style="margin-bottom: 22px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-            <label style="font-size: 13.5px; font-weight: 800; color: #fff;">
-              📸 Passo 1: Escolha a Imagem do Card do WhatsApp:
-            </label>
-            <span id="badgeBannerAtivo" style="font-size: 11px; font-weight: 800; color: #34d399; background: rgba(16,185,129,0.15); padding: 4px 12px; border-radius: 999px; border: 1px solid rgba(16,185,129,0.3);">
-              Selecionado: Raquete & Saibro
-            </span>
+        <!-- Imagem Fixa Oficial -->
+        <div class="banner-fixed-card">
+          <img src="assets/img/og-personal-tenistas.jpg" alt="Personal para Tenistas" class="banner-fixed-thumb" />
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+              <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #10b981;"></span>
+              <span style="font-size: 11px; font-weight: 800; color: #34d399; text-transform: uppercase; letter-spacing: 0.5px;">Imagem Fixa Ativa</span>
+            </div>
+            <div style="font-size: 15px; font-weight: 800; color: #ffffff;">Personal para Tenistas</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Card oficial configurado para gerar alta atração em grupos de tênis.</div>
           </div>
-
-          <div class="banner-selector">
-            <div class="banner-option active" onclick="selecionarBanner('saibro', this, 'Raquete & Saibro')">
-              <img src="assets/img/og-saibro.jpg" alt="Raquete no Saibro" />
-              <span>🎾 Raquete & Saibro</span>
-            </div>
-            <div class="banner-option" onclick="selecionarBanner('saque', this, 'Saque & Ataque')">
-              <img src="assets/img/og-saque.jpg" alt="Saque em Saibro" />
-              <span>⚡ Saque & Ataque</span>
-            </div>
-            <div class="banner-option" onclick="selecionarBanner('personal', this, 'Personal Felipe')">
-              <img src="assets/img/og-personal.jpg" alt="Personal Felipe Martins" />
-              <span>💪 Personal Felipe</span>
-            </div>
-            <div class="banner-option" onclick="selecionarBanner('remada', this, 'Prevenção & Força')">
-              <img src="assets/img/og-remada.jpg" alt="Força e Manguito" />
-              <span>🛡️ Prevenção & Força</span>
-            </div>
-            <div class="banner-option" onclick="selecionarBanner('beach', this, 'Beach Tennis')">
-              <img src="assets/img/og-beach.jpg" alt="Beach Tennis" />
-              <span>🏖️ Beach Tennis</span>
-            </div>
-          </div>
-
-          <!-- BOTÃO EXPLÍCITO PARA GERAR LINK -->
-          <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 14px; padding: 14px; font-size: 15px; border-radius: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 20px rgba(16,185,129,0.4);" onclick="gerarLinkComImagem()">
-            <span style="font-size: 18px;">⚡</span>
-            <span>Gerar Link com a Imagem Selecionada</span>
-          </button>
         </div>
 
-        <!-- Passo 2: Link Gerado -->
-        <div class="link-box" id="boxLinkGerado" style="transition: all 0.3s ease;">
+        <!-- Link Oficial -->
+        <div class="link-box" id="boxLinkGerado">
           <div class="link-header">
-            <span>🔗 Passo 2: Link Gerado do Card</span>
-            <span id="linkStatusBadge" style="color: #34d399;">Pronto para Copiar</span>
+            <span>🔗 Link Oficial de Divulgação</span>
+            <span id="linkStatusBadge" style="color: #34d399;">Ativo & Pronto</span>
           </div>
           <div class="link-url" id="linkDisplay">https://personaltenis.vercel.app/c</div>
           <div class="btn-group">
@@ -368,9 +322,9 @@
           </div>
         </div>
 
-        <!-- Passo 3: Copy Pronta para o Grupo -->
-        <div class="card-title" style="margin-top: 20px; margin-bottom: 10px;">
-          <span>💬</span> Passo 3: Mensagem Formatada para o Grupo
+        <!-- Mensagem Pronta para o Grupo -->
+        <div class="card-title" style="margin-top: 22px; margin-bottom: 10px;">
+          <span>💬</span> Mensagem Pronta para o Grupo de WhatsApp
         </div>
 
         <textarea class="textarea-box" id="msgTextarea"></textarea>
@@ -389,7 +343,7 @@
         </div>
 
         <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; font-size: 12.5px; color: #a7f3d0; line-height: 1.45;">
-          ⚡ <strong>Visual Impecável:</strong> Quando você cola a mensagem com o link no WhatsApp, ele puxa automaticamente a foto quadrada de alta resolução e a headline no card!
+          ⚡ <strong>Visual Impecável:</strong> Ao colar a mensagem no WhatsApp, o aplicativo carrega instantaneamente a foto quadrada oficial e o título no topo!
         </div>
 
         <div class="whatsapp-preview-box">
@@ -399,10 +353,10 @@
 
           <div class="whatsapp-bubble">
             <div class="og-card" onclick="window.open('/c', '_blank')">
-              <img src="assets/img/og-saibro.jpg" class="og-img-preview" id="simImage" alt="Card Preview" />
+              <img src="assets/img/og-personal-tenistas.jpg" class="og-img-preview" id="simImage" alt="Card Preview" />
               <div class="og-text">
-                <div class="og-title" id="simTitle">🎾 Preparação Física & Aulas de Tênis | Personal Felipe Martins</div>
-                <div class="og-desc" id="simDesc">Evolua seu jogo de Tênis e Beach Tennis: mais potência no saque e forehand, fôlego para 3 sets e zero dores no cotovelo.</div>
+                <div class="og-title" id="simTitle">🎾 Personal para Tenistas | Felipe Martins</div>
+                <div class="og-desc" id="simDesc">Preparação física específica na academia: mais potência no saque, agilidade na quadra e zero lesões.</div>
                 <div class="og-url" id="simUrl">personaltenis.vercel.app</div>
               </div>
             </div>
@@ -422,12 +376,12 @@
         <div class="step-item">
           <div class="step-num">1</div>
           <div class="step-title">Copie a Mensagem</div>
-          <div class="step-desc">Clique no botão "Copiar Mensagem Completa" acima para copiar o texto com o link já embutido.</div>
+          <div class="step-desc">Clique no botão "Copiar Mensagem Completa" para copiar o texto com o link já incluído.</div>
         </div>
         <div class="step-item">
           <div class="step-num">2</div>
           <div class="step-title">Cole no Grupo</div>
-          <div class="step-desc">Cole no grupo de WhatsApp e aguarde 2 segundos para o WhatsApp carregar a imagem do card no topo.</div>
+          <div class="step-desc">Cole no grupo do WhatsApp e aguarde 2 segundos para o WhatsApp carregar a imagem do card no topo.</div>
         </div>
         <div class="step-item">
           <div class="step-num">3</div>
@@ -441,7 +395,6 @@
   <div class="toast" id="toast">Copiado com sucesso!</div>
 
   <script>
-    let currentBannerStyle = 'saibro';
     const linkDisplay = document.getElementById('linkDisplay');
     const msgTextarea = document.getElementById('msgTextarea');
     const simImage = document.getElementById('simImage');
@@ -457,17 +410,7 @@
     }
 
     function getGeneratedLink() {
-      const base = getBaseUrl();
-      if (currentBannerStyle === 'personal') {
-        return `${base}/c/personal`;
-      } else if (currentBannerStyle === 'saque') {
-        return `${base}/c/saque`;
-      } else if (currentBannerStyle === 'remada') {
-        return `${base}/c/remada`;
-      } else if (currentBannerStyle === 'beach') {
-        return `${base}/c/beach`;
-      }
-      return `${base}/c/saibro`;
+      return `${getBaseUrl()}/c`;
     }
 
     function updateCopy() {
@@ -476,16 +419,12 @@
       btnTestarLink.href = link;
       simUrl.textContent = window.location.host || 'personaltenis.vercel.app';
 
-      let headline = '🎾 *QUER JOGAR MAIS RÁPIDO, ÁGIL E RESISTENTE NA QUADRA?* 🏆';
-      let intro = 'Fala pessoal! Abrindo novos horários para acompanhamento de *Preparação Física Especializada em Tênis e Beach Tennis* em Jundiaí e região.';
+      simImage.src = 'assets/img/og-personal-tenistas.jpg';
+      simTitle.textContent = '🎾 Personal para Tenistas | Felipe Martins';
+      simDesc.textContent = 'Preparação física específica na academia: mais potência no saque, agilidade na quadra e zero lesões.';
 
-      if (currentBannerStyle === 'beach') {
-        headline = '🏖️ *BEACH TENNIS: MAIS AGILIDADE, POTÊNCIA E ZERO DORES* 🎾';
-        intro = 'Fala pessoal do Beach Tennis! Abrindo novos horários de *Preparação Física na Academia* focada 100% no esporte.';
-      } else if (currentBannerStyle === 'remada') {
-        headline = '🛡️ *BLINDAGEM CONTRA TENNIS ELBOW & DORES ARTICULARES* 🎾';
-        intro = 'Sentindo cotovelo ou ombro pós-jogo? Abrindo horários de *Preparação Física na Academia* para jogar em alto nível sem dores.';
-      }
+      const headline = '🎾 *PERSONAL PARA TENISTAS: JOGUE COM MAIS POTÊNCIA, VELOCIDADE E SEM DORES!* 🏆';
+      const intro = 'Fala pessoal! Abrindo novos horários para acompanhamento de *Preparação Física Especializada para Tenistas* na academia em Jundiaí e região.';
 
       const text = `${link}
 
@@ -494,10 +433,10 @@ ${headline}
 ${intro}
 
 O objetivo do treino:
-✅ Mais potência no saque e nos golpes de fundo
-✅ Agilidade e velocidade nos deslocamentos
+✅ Mais potência no saque e nos golpes de fundo (forehand e backhand)
+✅ Agilidade, velocidade e resistência para jogar em alto nível até o 3º set
 ✅ Prevenção real de lesões (cotovelo de tenista, ombro e lombar)
-✅ Preparação física específica na academia com metodologia individualizada
+✅ Preparação física na academia com metodologia 100% individualizada
 
 Se você quer subir de nível no tênis este mês, reserve seu horário.
 
@@ -505,61 +444,9 @@ Se você quer subir de nível no tênis este mês, reserve seu horário.
 
       msgTextarea.value = text;
 
-      // Atualiza simulador de texto do WhatsApp (sem o link no corpo se preferir ou com visual limpo)
+      // Atualiza simulador de texto do WhatsApp
       const previewText = text.replace(link + '\n\n', '');
       simMsg.textContent = previewText;
-    }
-
-    function selecionarBanner(estilo, el, nomeAmigavel) {
-      currentBannerStyle = estilo;
-      document.querySelectorAll('.banner-option').forEach(b => b.classList.remove('active'));
-      el.classList.add('active');
-
-      const badge = document.getElementById('badgeBannerAtivo');
-      if (badge && nomeAmigavel) {
-        badge.textContent = `Selecionado: ${nomeAmigavel}`;
-      }
-
-      if (estilo === 'saque') {
-        simImage.src = 'assets/img/og-saque.jpg';
-        simTitle.textContent = '⚡ Potência no Saque e Forehand | Personal Felipe Martins';
-        simDesc.textContent = 'Mais velocidade de bola através da biomecânica correta e zero dores no cotovelo e ombro.';
-      } else if (estilo === 'personal') {
-        simImage.src = 'assets/img/og-personal.jpg';
-        simTitle.textContent = '💪 Personal Trainer Felipe Martins | Preparador Físico';
-        simDesc.textContent = 'Acompanhamento presencial exclusivo com CREF ativo em Jundiaí e região. Agende sua aula experimental.';
-      } else if (estilo === 'remada') {
-        simImage.src = 'assets/img/og-remada.jpg';
-        simTitle.textContent = '🛡️ Prevenção de Tennis Elbow & Força | Felipe Martins';
-        simDesc.textContent = 'Blindagem articular do cotovelo e manguito com preparação física personalizada.';
-      } else if (estilo === 'beach') {
-        simImage.src = 'assets/img/og-beach.jpg';
-        simTitle.textContent = '🏖️ Beach Tennis: Preparação Física & Aulas | Felipe Martins';
-        simDesc.textContent = 'Ganhe agilidade na areia, smashes explosivos e fôlego para jogos longos sem lesões.';
-      } else {
-        simImage.src = 'assets/img/og-saibro.jpg';
-        simTitle.textContent = '🎾 Tênis: Preparação Física & Aulas no Saibro | Felipe Martins';
-        simDesc.textContent = 'Footwork, precisão e potência nos golpes com acompanhamento presencial em Jundiaí e região.';
-      }
-
-      updateCopy();
-      showToast('Imagem selecionada! Clique no botão abaixo para gerar o link.');
-    }
-
-    function gerarLinkComImagem() {
-      updateCopy();
-      const box = document.getElementById('boxLinkGerado');
-      if (box) {
-        box.style.borderColor = '#10b981';
-        box.style.boxShadow = '0 0 30px rgba(16, 185, 129, 0.45)';
-        box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        setTimeout(() => {
-          box.style.borderColor = '';
-          box.style.boxShadow = '';
-        }, 1500);
-      }
-      copiarLink();
-      showToast('⚡ Link gerado e copiado para a área de transferência!');
     }
 
     function showToast(msg) {
