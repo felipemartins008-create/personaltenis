@@ -59,8 +59,18 @@ module.exports = (req, res) => {
 
   // Detecção de Scraper/Robô (WhatsApp, Facebook, Twitter, Telegram, etc.)
   const ua = (req.headers['user-agent'] || '').toLowerCase();
-  const isBot = /whatsapp|facebookexternalhit|facebot|twitterbot|telegrambot|linkedinbot|slackbot|discordbot/i.test(ua);
+  const isBot = /whatsapp|facebookexternalhit|facebot|twitterbot|telegrambot|linkedinbot|slackbot|discordbot|applebot|googlebot|bingbot|yandex|pinterest/i.test(ua);
 
+  // Se for usuário real (não robô), vai DIRETO para a página de destino (Zero telas intermediárias)
+  if (!isBot) {
+    if (typeof res.redirect === 'function') {
+      return res.redirect(302, redirectUrl);
+    }
+    res.writeHead(302, { Location: redirectUrl });
+    return res.end();
+  }
+
+  // Se for bot/crawler do WhatsApp/redes sociais, entrega apenas as metatags Open Graph para gerar o card
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 'public, max-age=86400, s-maxage=86400, stale-while-revalidate=604800');
@@ -82,9 +92,9 @@ module.exports = (req, res) => {
   <meta property="og:image" content="${bannerImg}" />
   <meta property="og:image:secure_url" content="${bannerImg}" />
   <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="800" />
-  <meta property="og:image:height" content="800" />
-  <meta property="og:image:alt" content="Preparação Física e Aulas de Tênis" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Personal para Tenistas" />
   <link rel="image_src" href="${bannerImg}" />
 
   <!-- Twitter Card -->
@@ -93,21 +103,12 @@ module.exports = (req, res) => {
   <meta name="twitter:description" content="${pageDesc}" />
   <meta name="twitter:image" content="${bannerImg}" />
 
-  ${!isBot ? `
-  <!-- Redirecionamento instantâneo exclusivo para usuários reais -->
+  <meta http-equiv="refresh" content="0;url=${redirectUrl}" />
   <script>
     window.location.replace('${redirectUrl}');
   </script>
-  ` : ''}
 </head>
-<body style="background:#020617;color:#94a3b8;font-family:system-ui,-apple-system,sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;padding:20px;text-align:center;">
-  <div>
-    <div style="font-size:36px;margin-bottom:12px;">🎾</div>
-    <div style="font-size:18px;font-weight:800;color:#fff;margin-bottom:6px;">Personal Tênis & Beach Tennis</div>
-    <div style="font-size:14px;color:#34d399;margin-bottom:14px;">Carregando seu plano de jogo...</div>
-    <a href="${redirectUrl}" style="color:#10b981;font-size:13px;text-decoration:underline;">Clique aqui para continuar</a>
-  </div>
-</body>
+<body style="background:#020617;margin:0;"></body>
 </html>`;
 
   if (typeof res.status === 'function' && typeof res.send === 'function') {
