@@ -536,7 +536,7 @@
                       <path d="M17.472 14.382c-.301-.15-1.78-.878-2.056-.979-.275-.1-.475-.15-.675.15-.2.301-.775.979-.95 1.179-.175.2-.351.226-.651.076-.301-.15-1.27-.468-2.42-1.492-.894-.797-1.498-1.782-1.674-2.083-.175-.301-.019-.464.132-.614.136-.135.301-.351.451-.527.151-.175.2-.301.301-.501.101-.2.051-.376-.025-.526-.076-.151-.676-1.63-.926-2.233-.243-.587-.49-.508-.675-.517-.175-.01-.375-.01-.576-.01s-.526.076-.802.376c-.276.301-1.053 1.028-1.053 2.507s1.079 2.908 1.229 3.109c.151.2 2.124 3.243 5.145 4.549.719.311 1.281.497 1.719.636.723.23 1.38.197 1.9.12.58-.087 1.78-.727 2.03-1.429.251-.702.251-1.303.176-1.429-.076-.126-.276-.201-.577-.352z"/>
                       <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.982-1.408A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.644 0-3.17-.487-4.455-1.328l-.32-.208-2.964.837.838-2.888-.228-.344A8.17 8.17 0 013.8 12c0-4.522 3.678-8.2 8.2-8.2s8.2 3.678 8.2 8.2-3.678 8.2-8.2 8.2z"/>
                     </svg>
-                    <span>Liberar Plano no WhatsApp</span>
+                    <span>Agendar Aula Experimental no WhatsApp</span>
                   </a>
 
                   <a href="#metodologia"
@@ -1065,15 +1065,15 @@
       const btnWa = document.getElementById('btn-result-whatsapp');
 
       headline.textContent = `Plano Sob Medida: ${userAnswers.modalidade}`;
-      summary.textContent = `Configuramos seu protocolo com foco prioritário em "${userAnswers.objetivo}" para o seu nível "${userAnswers.nivel}". Vamos agora alinhar sua disponibilidade e iniciar seus treinos presenciais!`;
+      summary.textContent = `Configuramos seu protocolo com foco prioritário em "${userAnswers.objetivo}" para o seu nível "${userAnswers.nivel}". Agende sua aula experimental para alinharmos o início dos treinos presenciais!`;
 
       // Monta a mensagem personalizada para o WhatsApp
-      const waMessage = `Olá Felipe! Fiz a triagem esportiva no site para atendimento de Personal:
+      const waMessage = `Olá Felipe! Fiz a triagem no site para atendimento de Personal:
 🎾 Modalidade: ${userAnswers.modalidade}
 ⚡ Foco Principal: ${userAnswers.objetivo}
 📊 Meu Nível Atual: ${userAnswers.nivel}
 
-Gostaria de ver sua grade de horários disponíveis para alinharmos o início!`;
+Gostaria de agendar uma aula experimental com você!`;
 
       const waUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waMessage)}`;
       btnWa.href = waUrl;
